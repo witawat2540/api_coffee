@@ -21,3 +21,16 @@ exports.endsale = (req, res, next) => {
         }
     );
 };
+
+exports.report_sale = (req, res, next) => {
+    db.query(
+        "SELECT  COALESCE(SUM(sumbill),0) AS sumbill FROM tb_order", [req.body.sumbill],
+        (err, results, fields) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(results[0]);
+            }
+        }
+    );
+};

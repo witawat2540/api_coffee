@@ -21,6 +21,7 @@ router.delete('/delete_sale/:id', product.delete_sale);
 
 
 router.post('/endsale', order.endsale);
+router.get('/report_sale', order.report_sale);
 
 
 
